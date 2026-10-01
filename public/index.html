@@ -1,0 +1,1765 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>ELECZZ Software</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     AUTHENTICATION
+     ===================================================== -->
+
+<div id="authScreen" class="auth-screen hidden">
+
+
+    <div class="auth-container">
+
+
+        <!-- LEFT BRAND AREA -->
+
+        <div class="auth-brand">
+
+            <div class="auth-logo">
+                EZ
+            </div>
+
+            <h1>
+                ELECZZ
+            </h1>
+
+            <h2>
+                Software
+            </h2>
+
+            <p>
+                Intelligent business management
+                and analytics platform.
+            </p>
+
+            <div class="brand-line"></div>
+
+            <span>
+                SMART • SIMPLE • POWERFUL
+            </span>
+
+        </div>
+
+
+        <!-- LOGIN -->
+
+        <div
+            id="loginBox"
+            class="auth-box"
+        >
+
+            <div class="auth-header">
+
+                <span class="auth-label">
+                    SECURE ACCESS
+                </span>
+
+                <h2>
+                    Welcome Back
+                </h2>
+
+                <p>
+                    Sign in to access your ELECZZ workspace.
+                </p>
+
+            </div>
+
+
+            <form id="loginForm">
+
+
+                <div class="auth-field">
+
+                    <label>
+                        Email Address
+                    </label>
+
+                    <input
+                        type="email"
+                        id="loginEmail"
+                        placeholder="Enter your email"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="auth-field">
+
+                    <label>
+                        Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="loginPassword"
+                        placeholder="Enter your password"
+                        required
+                    >
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="auth-button"
+                >
+                    Sign In
+                </button>
+
+
+            </form>
+
+
+            <div class="auth-switch">
+
+                Don't have an account?
+
+                <button
+                    type="button"
+                    id="showSignup"
+                >
+                    Create Account
+                </button>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- SIGN UP -->
+
+        <div
+            id="signupBox"
+            class="auth-box hidden"
+        >
+
+            <div class="auth-header">
+
+                <span class="auth-label">
+                    CREATE ACCOUNT
+                </span>
+
+                <h2>
+                    Create Your Account
+                </h2>
+
+                <p>
+                    Your new workspace will start with zero data.
+                </p>
+
+            </div>
+
+
+            <form id="signupForm">
+
+
+                <div class="auth-field">
+
+                    <label>
+                        Full Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="signupName"
+                        placeholder="Enter your full name"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="auth-field">
+
+                    <label>
+                        Email Address
+                    </label>
+
+                    <input
+                        type="email"
+                        id="signupEmail"
+                        placeholder="Enter your email"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="auth-field">
+
+                    <label>
+                        Phone Number
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="signupPhone"
+                        placeholder="Enter your phone number"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="auth-field">
+
+                    <label>
+                        Company / Organization
+                    </label>
+
+                    <input
+                        type="text"
+                        id="signupCompany"
+                        placeholder="Enter company name"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="auth-field">
+
+                    <label>
+                        Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="signupPassword"
+                        placeholder="Create a password"
+                        minlength="6"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="auth-field">
+
+                    <label>
+                        Confirm Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="signupConfirmPassword"
+                        placeholder="Confirm password"
+                        minlength="6"
+                        required
+                    >
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="auth-button"
+                >
+                    Create Account
+                </button>
+
+
+            </form>
+
+
+            <div class="auth-switch">
+
+                Already have an account?
+
+                <button
+                    type="button"
+                    id="showLogin"
+                >
+                    Sign In
+                </button>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     MAIN APPLICATION
+     ===================================================== -->
+
+<div
+    id="application"
+    class="application hidden"
+>
+
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+
+        <div class="brand">
+
+            <div class="brand-logo">
+                EZ
+            </div>
+
+            <div>
+
+                <strong>
+                    ELECZZ
+                </strong>
+
+                <span>
+                    Software
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <nav>
+
+
+            <button
+                class="nav-btn active"
+                data-page="dashboard"
+            >
+
+                <span>▦</span>
+
+                Dashboard
+
+            </button>
+
+
+            <button
+                class="nav-btn"
+                data-page="orders"
+            >
+
+                <span>↗</span>
+
+                Orders
+
+            </button>
+
+
+            <button
+                class="nav-btn"
+                data-page="customers"
+            >
+
+                <span>♙</span>
+
+                Customers
+
+            </button>
+
+
+            <button
+                class="nav-btn"
+                data-page="products"
+            >
+
+                <span>▤</span>
+
+                Products
+
+            </button>
+
+
+            <button
+                class="nav-btn"
+                data-page="payments"
+            >
+
+                <span>₹</span>
+
+                Payments
+
+            </button>
+
+
+            <button
+                class="nav-btn"
+                data-page="reports"
+            >
+                <span>Σ</span>
+                SQL Reports
+            </button>
+
+            <button
+                class="nav-btn"
+                data-page="warehouse"
+            >
+                <span>⌂</span>
+                Data Warehouse
+            </button>
+
+            <button
+                class="nav-btn"
+                data-page="bi"
+            >
+                <span>◫</span>
+                BI Dashboards
+            </button>
+        </nav>
+
+
+        <div class="sidebar-footer">
+
+
+            <div class="connection">
+
+                <span class="connection-dot"></span>
+
+                <div>
+
+                    <strong>
+                        System Online
+                    </strong>
+
+                    <small>
+                        Secure workspace
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <button
+                id="logoutButton"
+                class="logout-button"
+            >
+
+                ⇥
+
+                Sign Out
+
+            </button>
+
+
+        </div>
+
+
+    </aside>
+
+
+
+    <!-- MAIN -->
+
+    <main class="main-content">
+
+
+        <!-- TOPBAR -->
+
+        <header class="topbar">
+
+
+            <div>
+
+                <span class="top-label">
+                    ELECZZ SOFTWARE
+                </span>
+
+                <h1 id="pageTitle">
+                    Executive Dashboard
+                </h1>
+
+            </div>
+
+
+            <div class="user-area">
+
+
+                <div class="live-status">
+
+                    <span></span>
+
+                    LIVE
+
+                </div>
+
+
+                <div class="user-profile">
+
+                    <div
+                        id="userAvatar"
+                        class="user-avatar"
+                    >
+                        EZ
+                    </div>
+
+
+                    <div>
+
+                        <strong id="userName">
+                            User
+                        </strong>
+
+                        <small id="userCompany">
+                            Organization
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+        </header>
+
+
+
+        <!-- =================================================
+             DASHBOARD
+             ================================================= -->
+
+        <section
+            id="dashboard"
+            class="page active"
+        >
+
+
+            <div class="page-heading">
+
+
+                <div>
+
+                    <h2>
+                        Business Overview
+                    </h2>
+
+                    <p>
+                        Monitor your business performance
+                        from one workspace.
+                    </p>
+
+                </div>
+
+
+                <button
+                    id="refreshDashboard"
+                    class="primary-button"
+                >
+
+                    ↻
+
+                    Refresh Data
+
+                </button>
+
+
+            </div>
+
+
+
+            <!-- KPI -->
+
+            <div class="kpi-grid">
+
+
+                <div class="kpi-card">
+
+                    <div class="kpi-heading">
+
+                        <span>
+                            Total Revenue
+                        </span>
+
+                        <div class="kpi-icon">
+                            ₹
+                        </div>
+
+                    </div>
+
+                    <h3 id="totalRevenue">
+                        ₹0
+                    </h3>
+
+                    <small>
+                        Completed orders
+                    </small>
+
+                </div>
+
+
+
+                <div class="kpi-card">
+
+                    <div class="kpi-heading">
+
+                        <span>
+                            Order Volume
+                        </span>
+
+                        <div class="kpi-icon">
+                            ↗
+                        </div>
+
+                    </div>
+
+                    <h3 id="orderVolume">
+                        0
+                    </h3>
+
+                    <small>
+                        Completed orders
+                    </small>
+
+                </div>
+
+
+
+                <div class="kpi-card">
+
+                    <div class="kpi-heading">
+
+                        <span>
+                            Average Order Value
+                        </span>
+
+                        <div class="kpi-icon">
+                            A
+                        </div>
+
+                    </div>
+
+                    <h3 id="averageOrder">
+                        ₹0
+                    </h3>
+
+                    <small>
+                        Revenue per order
+                    </small>
+
+                </div>
+
+
+
+                <div class="kpi-card">
+
+                    <div class="kpi-heading">
+
+                        <span>
+                            Customers
+                        </span>
+
+                        <div class="kpi-icon">
+                            ♙
+                        </div>
+
+                    </div>
+
+                    <h3 id="customerCount">
+                        0
+                    </h3>
+
+                    <small>
+                        Registered customers
+                    </small>
+
+                </div>
+
+
+
+                <div class="kpi-card">
+
+                    <div class="kpi-heading">
+
+                        <span>
+                            Products
+                        </span>
+
+                        <div class="kpi-icon">
+                            ▤
+                        </div>
+
+                    </div>
+
+                    <h3 id="productCount">
+                        0
+                    </h3>
+
+                    <small>
+                        Products in catalog
+                    </small>
+
+                </div>
+
+
+
+                <div class="kpi-card">
+
+                    <div class="kpi-heading">
+
+                        <span>
+                            Repeat Customers
+                        </span>
+
+                        <div class="kpi-icon">
+                            ↻
+                        </div>
+
+                    </div>
+
+                    <h3 id="repeatCustomers">
+                        0
+                    </h3>
+
+                    <small>
+                        2+ completed orders
+                    </small>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- CHARTS -->
+
+            <div class="chart-grid">
+
+
+                <div class="panel">
+
+                    <div class="panel-header">
+
+                        <div>
+
+                            <h3>
+                                Monthly Revenue
+                            </h3>
+
+                            <p>
+                                Completed order revenue
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="chart-container">
+
+                        <canvas
+                            id="revenueChart"
+                        ></canvas>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="panel">
+
+                    <div class="panel-header">
+
+                        <div>
+
+                            <h3>
+                                Order Status
+                            </h3>
+
+                            <p>
+                                Current order distribution
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        class="chart-container donut"
+                    >
+
+                        <canvas
+                            id="statusChart"
+                        ></canvas>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- TABLES -->
+
+            <div class="table-grid">
+
+
+                <div class="panel">
+
+                    <div class="panel-header">
+
+                        <div>
+
+                            <h3>
+                                Top Products
+                            </h3>
+
+                            <p>
+                                Ranked by revenue
+                            </p>
+
+                        </div>
+
+                        <button
+                            class="view-button"
+                            data-page-link="products"
+                        >
+                            View All →
+                        </button>
+
+                    </div>
+
+
+                    <div class="table-wrapper">
+
+                        <table>
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>
+                                        Rank
+                                    </th>
+
+                                    <th>
+                                        Product
+                                    </th>
+
+                                    <th>
+                                        Units
+                                    </th>
+
+                                    <th>
+                                        Revenue
+                                    </th>
+
+                                </tr>
+
+                            </thead>
+
+
+                            <tbody
+                                id="topProductsTable"
+                            ></tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="panel">
+
+                    <div class="panel-header">
+
+                        <div>
+
+                            <h3>
+                                Customer Ranking
+                            </h3>
+
+                            <p>
+                                Completed revenue
+                            </p>
+
+                        </div>
+
+                        <button
+                            class="view-button"
+                            data-page-link="customers"
+                        >
+                            View All →
+                        </button>
+
+                    </div>
+
+
+                    <div class="table-wrapper">
+
+                        <table>
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>
+                                        Rank
+                                    </th>
+
+                                    <th>
+                                        Customer
+                                    </th>
+
+                                    <th>
+                                        Revenue
+                                    </th>
+
+                                </tr>
+
+                            </thead>
+
+
+                            <tbody
+                                id="customerRankingTable"
+                            ></tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             ORDERS
+             ================================================= -->
+
+        <section
+            id="orders"
+            class="page"
+        >
+
+
+            <div class="page-heading">
+
+                <div>
+
+                    <h2>
+                        Order Management
+                    </h2>
+
+                    <p>
+                        Create and manage customer orders.
+                    </p>
+
+                </div>
+
+
+                <button
+                    id="addOrderBtn"
+                    class="primary-button"
+                >
+                    + New Order
+                </button>
+
+            </div>
+
+
+            <div class="panel">
+
+
+                <div class="toolbar">
+
+                    <input
+                        id="orderSearch"
+                        type="text"
+                        placeholder="Search order or customer..."
+                    >
+
+
+                    <select id="orderFilter">
+
+                        <option value="ALL">
+                            All Statuses
+                        </option>
+
+                        <option value="COMPLETED">
+                            Completed
+                        </option>
+
+                        <option value="PROCESSING">
+                            Processing
+                        </option>
+
+                        <option value="PENDING">
+                            Pending
+                        </option>
+
+                        <option value="CANCELLED">
+                            Cancelled
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="table-wrapper">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    Order ID
+                                </th>
+
+                                <th>
+                                    Customer
+                                </th>
+
+                                <th>
+                                    Date
+                                </th>
+
+                                <th>
+                                    Status
+                                </th>
+
+                                <th>
+                                    Amount
+                                </th>
+
+                                <th>
+                                    Payment
+                                </th>
+
+                                <th>
+                                    Action
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody
+                            id="ordersTable"
+                        ></tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             CUSTOMERS
+             ================================================= -->
+
+        <section
+            id="customers"
+            class="page"
+        >
+
+
+            <div class="page-heading">
+
+                <div>
+
+                    <h2>
+                        Customer Management
+                    </h2>
+
+                    <p>
+                        Manage your customer records.
+                    </p>
+
+                </div>
+
+
+                <button
+                    id="addCustomerBtn"
+                    class="primary-button"
+                >
+                    + Add Customer
+                </button>
+
+            </div>
+
+
+            <div class="panel">
+
+
+                <div class="toolbar">
+
+                    <input
+                        id="customerSearch"
+                        type="text"
+                        placeholder="Search customer, email or city..."
+                    >
+
+                </div>
+
+
+                <div class="table-wrapper">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    ID
+                                </th>
+
+                                <th>
+                                    Name
+                                </th>
+
+                                <th>
+                                    Email
+                                </th>
+
+                                <th>
+                                    City
+                                </th>
+
+                                <th>
+                                    Signup Date
+                                </th>
+
+                                <th>
+                                    Actions
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody
+                            id="customersTable"
+                        ></tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             PRODUCTS
+             ================================================= -->
+
+        <section
+            id="products"
+            class="page"
+        >
+
+
+            <div class="page-heading">
+
+                <div>
+
+                    <h2>
+                        Product Management
+                    </h2>
+
+                    <p>
+                        Manage products, pricing and inventory.
+                    </p>
+
+                </div>
+
+
+                <button
+                    id="addProductBtn"
+                    class="primary-button"
+                >
+                    + Add Product
+                </button>
+
+            </div>
+
+
+            <div class="panel">
+
+
+                <div class="toolbar">
+
+                    <input
+                        id="productSearch"
+                        type="text"
+                        placeholder="Search product or category..."
+                    >
+
+                </div>
+
+
+                <div class="table-wrapper">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    ID
+                                </th>
+
+                                <th>
+                                    Product
+                                </th>
+
+                                <th>
+                                    Category
+                                </th>
+
+                                <th>
+                                    Price
+                                </th>
+
+                                <th>
+                                    Stock
+                                </th>
+
+                                <th>
+                                    Actions
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody
+                            id="productsTable"
+                        ></tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             PAYMENTS
+             ================================================= -->
+
+        <section
+            id="payments"
+            class="page"
+        >
+
+
+            <div class="page-heading">
+
+                <div>
+
+                    <h2>
+                        Payment Management
+                    </h2>
+
+                    <p>
+                        Monitor payment transactions.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="panel">
+
+
+                <div class="table-wrapper">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    Payment ID
+                                </th>
+
+                                <th>
+                                    Order ID
+                                </th>
+
+                                <th>
+                                    Payment Date
+                                </th>
+
+                                <th>
+                                    Amount
+                                </th>
+
+                                <th>
+                                    Status
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody
+                            id="paymentsTable"
+                        ></tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+        <!-- =====================================================
+             SQL REPORTS
+             ===================================================== -->
+        <section
+            id="reports"
+            class="page"
+        >
+            <div class="page-heading">
+                <div>
+                    <h2>SQL Reports</h2>
+                    <p>
+                        Every number on this page is calculated by MySQL views
+                        (joins, window functions, subqueries, CASE) &mdash;
+                        nothing is calculated in the browser.
+                    </p>
+                </div>
+            </div>
+
+            <div class="panel">
+                <div class="panel-header">
+                    <div>
+                        <h3>Monthly Revenue Trend</h3>
+                        <p>view v_monthly_revenue &middot; running total = SUM() OVER &middot; growth = LAG()</p>
+                    </div>
+                </div>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Month</th>
+                                <th>Orders</th>
+                                <th>Revenue</th>
+                                <th>Avg Order</th>
+                                <th>Running Total</th>
+                                <th>MoM Growth</th>
+                            </tr>
+                        </thead>
+                        <tbody id="reportMonthlyTable"></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="table-grid">
+            <div class="panel">
+                <div class="panel-header">
+                    <div>
+                        <h3>Customer Segments</h3>
+                        <p>view v_customer_performance &middot; CASE expression</p>
+                    </div>
+                </div>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Segment</th>
+                                <th>Customers</th>
+                                <th>Revenue</th>
+                                <th>Share</th>
+                            </tr>
+                        </thead>
+                        <tbody id="reportSegmentTable"></tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="panel">
+                <div class="panel-header">
+                    <div>
+                        <h3>Category Performance</h3>
+                        <p>view v_product_performance &middot; GROUP BY + % share</p>
+                    </div>
+                </div>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Category</th>
+                                <th>Units</th>
+                                <th>Revenue</th>
+                                <th>Share</th>
+                            </tr>
+                        </thead>
+                        <tbody id="reportCategoryTable"></tbody>
+                    </table>
+                </div>
+            </div>
+            </div>
+
+            <div class="table-grid">
+            <div class="panel">
+                <div class="panel-header">
+                    <div>
+                        <h3>Customers With No Completed Purchase</h3>
+                        <p>LEFT JOIN &middot; win-back list</p>
+                    </div>
+                </div>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Customer</th>
+                                <th>City</th>
+                                <th>Joined</th>
+                            </tr>
+                        </thead>
+                        <tbody id="reportIdleCustomersTable"></tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="panel">
+                <div class="panel-header">
+                    <div>
+                        <h3>Products That Never Sold</h3>
+                        <p>LEFT JOIN &middot; dead-stock check</p>
+                    </div>
+                </div>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Product</th>
+                                <th>Category</th>
+                                <th>Stock</th>
+                            </tr>
+                        </thead>
+                        <tbody id="reportUnsoldProductsTable"></tbody>
+                    </table>
+                </div>
+            </div>
+            </div>
+        </section>
+
+        <!-- =====================================================
+             DATA WAREHOUSE  (star schema, SCD Type 2, partitioning,
+             materialized views, ETL)
+             ===================================================== -->
+        <section id="warehouse" class="page">
+
+            <div class="page-heading">
+                <div>
+                    <h2>Data Warehouse</h2>
+                    <p>
+                        A star schema (<code>dw_fact_sales</code> + 3 dimensions) built by an ETL
+                        procedure from the live tables. The fact table is partitioned by quarter;
+                        customer and product history is kept as Slowly Changing Dimensions (Type&nbsp;2).
+                    </p>
+                </div>
+                <button id="dwRunEtl" class="primary-button">↻ Run ETL Now</button>
+            </div>
+
+            <div id="dwStatusBanner" class="dw-banner"></div>
+
+            <div class="kpi-grid" id="dwSummaryCards"></div>
+
+            <div class="table-grid">
+                <div class="panel">
+                    <div class="panel-header">
+                        <div>
+                            <h3>Materialized Views</h3>
+                            <p>MySQL has no native syntax for these &mdash; real tables, rebuilt by <code>sp_refresh_mv</code></p>
+                        </div>
+                        <button id="dwRefreshMv" class="view-button">Refresh Now</button>
+                    </div>
+                    <div class="table-wrapper">
+                        <table>
+                            <thead><tr><th>View</th><th>Rows</th><th>Last Refreshed</th></tr></thead>
+                            <tbody id="dwMvTable"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="panel">
+                    <div class="panel-header">
+                        <div>
+                            <h3>Partitions of dw_fact_sales</h3>
+                            <p>RANGE BY QUARTER &middot; this account's rows in each</p>
+                        </div>
+                    </div>
+                    <div class="table-wrapper">
+                        <table>
+                            <thead><tr><th>Partition</th><th>Date range</th><th>Rows</th></tr></thead>
+                            <tbody id="dwPartitionTable"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel">
+                <div class="panel-header">
+                    <div>
+                        <h3>Partition Pruning Demo</h3>
+                        <p>EXPLAIN shows which partitions a date-range query actually reads</p>
+                    </div>
+                </div>
+                <div class="dw-pruning-form">
+                    <label>From <input type="date" id="dwPruneFrom" value="2026-04-01"></label>
+                    <label>To <input type="date" id="dwPruneTo" value="2026-06-30"></label>
+                    <button id="dwPruneTest" class="primary-button">Test</button>
+                </div>
+                <div id="dwPruneResult" class="dw-prune-result"></div>
+            </div>
+
+            <div class="table-grid">
+                <div class="panel">
+                    <div class="panel-header">
+                        <div>
+                            <h3>Slowly Changing Dimension</h3>
+                            <p>only entities with more than one version are shown</p>
+                        </div>
+                        <select id="dwScdKind">
+                            <option value="customer">Customer (city)</option>
+                            <option value="product">Product (category / price)</option>
+                        </select>
+                    </div>
+                    <div class="table-wrapper">
+                        <table>
+                            <thead><tr><th>#</th><th>Name</th><th>Version</th><th>Tracked value</th><th>Valid from</th><th>Valid to</th><th>Current?</th></tr></thead>
+                            <tbody id="dwScdTable"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="panel">
+                    <div class="panel-header">
+                        <div>
+                            <h3>As It Was vs. As It Is Today</h3>
+                            <p>revenue grouped by the SCD value at sale time vs. right now</p>
+                        </div>
+                        <select id="dwScdReportKind">
+                            <option value="by_city">By customer city</option>
+                            <option value="by_category">By product category</option>
+                        </select>
+                    </div>
+                    <div class="table-wrapper">
+                        <table>
+                            <thead><tr><th>Value</th><th>Revenue (as it was)</th><th>Revenue (as it is today)</th><th>Difference</th></tr></thead>
+                            <tbody id="dwScdReportTable"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel">
+                <div class="panel-header">
+                    <div>
+                        <h3>ETL Run History</h3>
+                        <p>table etl_run_log &middot; last 10 runs</p>
+                    </div>
+                </div>
+                <div class="table-wrapper">
+                    <table>
+                        <thead><tr><th>Run</th><th>Started</th><th>Status</th><th>Duration</th><th>New / changed</th><th>Facts in / upd</th></tr></thead>
+                        <tbody id="dwRunsTable"></tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- =====================================================
+             BI DASHBOARDS  (self-hosted dashboard builder)
+             ===================================================== -->
+        <section id="bi" class="page">
+
+            <div class="page-heading">
+                <div>
+                    <h2>BI Dashboards</h2>
+                    <p>
+                        A dashboard builder, built into this website, so it works without a
+                        Power BI or Microsoft account. Generate one from a template, or build your
+                        own from any of the 4 data sources below. Every widget's data and SQL can be
+                        downloaded as a CSV that opens directly in Power BI Desktop, Excel, or Google Sheets.
+                    </p>
+                </div>
+                <button id="biNewBlank" class="primary-button">+ Blank Dashboard</button>
+            </div>
+
+            <div class="panel">
+                <div class="panel-header">
+                    <div><h3>One-Click Templates</h3></div>
+                </div>
+                <div id="biTemplates" class="bi-template-grid"></div>
+            </div>
+
+            <div class="panel">
+                <div class="panel-header">
+                    <div><h3>My Dashboards</h3></div>
+                </div>
+                <div class="table-wrapper">
+                    <table>
+                        <thead><tr><th>Name</th><th>Widgets</th><th>Last updated</th><th></th></tr></thead>
+                        <tbody id="biDashboardsTable"></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div id="biViewer" class="bi-viewer hidden">
+
+                <div class="page-heading">
+                    <div>
+                        <input id="biDashName" class="bi-name-input" />
+                    </div>
+                    <div class="bi-viewer-actions">
+                        <button id="biExportAll" class="view-button">⬇ Export all (CSV)</button>
+                        <button id="biSaveDash" class="primary-button">Save</button>
+                        <button id="biCloseDash" class="secondary-button">Close</button>
+                    </div>
+                </div>
+
+                <div id="biWidgets" class="bi-widget-grid"></div>
+
+                <div class="panel">
+                    <div class="panel-header"><div><h3>Add a Widget</h3></div></div>
+                    <div class="bi-builder-form" id="biBuilderForm">
+                        <label>Data source
+                            <select id="biDataset"></select>
+                        </label>
+                        <label>Chart
+                            <select id="biChart">
+                                <option value="bar">Bar</option>
+                                <option value="line">Line</option>
+                                <option value="pie">Pie</option>
+                                <option value="doughnut">Doughnut</option>
+                                <option value="table">Table</option>
+                                <option value="kpi">KPI number</option>
+                            </select>
+                        </label>
+                        <label>Group by
+                            <select id="biDimension"></select>
+                        </label>
+                        <label>Measure
+                            <select id="biMeasure"></select>
+                        </label>
+                        <label>Limit
+                            <input type="number" id="biLimit" value="10" min="1" max="60" />
+                        </label>
+                        <label class="bi-title-field">Title
+                            <input type="text" id="biWidgetTitle" placeholder="Widget title" />
+                        </label>
+                        <button id="biAddWidget" class="primary-button">+ Add to Dashboard</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+</div>
+
+
+
+<!-- =====================================================
+     MODAL
+     ===================================================== -->
+
+<div
+    id="modal"
+    class="modal-overlay"
+>
+
+    <div class="modal">
+
+        <button
+            id="closeModal"
+            class="close-modal"
+        >
+            ×
+        </button>
+
+
+        <h2 id="modalTitle">
+            Form
+        </h2>
+
+
+        <div id="modalContent"></div>
+
+    </div>
+
+</div>
+
+
+
+<!-- TOAST -->
+
+<div
+    id="toast"
+    class="toast"
+></div>
+
+
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
